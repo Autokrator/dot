@@ -1,0 +1,39 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR EDITOR:emacs
+SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dcolor\x20fg\x2b\x3a\x23f382ac\x2cbg\x2b\x3a\x2321242b\x2chl\x2b\x3a\x23ecbe7b\x2chl\x3a\x2385ECAA\x2cfg\x3a\x233f444a\x2cspinner\x3a\x233f444a\x2cinfo\x3a\x233f444a\x2cpointer\x3a\x2321242b\x20\x2d\x2dinline\x2dinfo
+SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:1
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR fish_color_autosuggestion:555\x1ebrblack
+SETUVAR fish_color_cancel:brblack
+SETUVAR fish_color_command:blue
+SETUVAR fish_color_comment:red
+SETUVAR fish_color_cwd:brcyan
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:brmagenta
+SETUVAR fish_color_error:brred
+SETUVAR fish_color_escape:magenta
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:bryellow
+SETUVAR fish_color_param:brmagenta
+SETUVAR fish_color_quote:brgreen\x1e\x2d\x2dbold
+SETUVAR fish_color_redirection:magenta
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x1d
+SETUVAR fish_greeting:\x5cn
+SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_completion:white
+SETUVAR fish_pager_color_description:brmagenta\x1e\x2d\x2dbold
+SETUVAR fish_pager_color_prefix:brcyan\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brgreen
+SETUVAR --export fish_prompt_pwd_dir_length:0
+SETUVAR fish_user_paths:/usr/local/opt/fzf/bin

@@ -2,9 +2,6 @@ set -U fish_color_valid_path
 set -U fish_pager_color_prefix 'brcyan' '--underline'
 set -U fish_pager_color_completion 'white'
 set -U fish_pager_color_description 'magenta' '--bold'
-set -U fish_color_command 'brred' '--bold'
-set -U fish_color_param 'A6E22E'
-set -U fish_pager_color_progress 'green'
+set -U fish_color_param 'brgreen'
 set -Ux fish_prompt_pwd_dir_length 0
-set -l fish_color_search_match --background='333'
 set -U EDITOR emacs

@@ -67,19 +67,22 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 8
+tabspaces: 2
 
 # Font configuration (changes require restart)
 font:
   normal:
+    # family: Source Code Pro
     family: Monaco
     style: Regular
 
   bold:
     family: Monaco
+    # family: Source Code Pro
     style: Bold
 
   italic:
+    # family: Source Code Pro
     family: Monaco
     style: Italic
 
@@ -108,8 +111,8 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x1c1e1f'
-    foreground: '0xd6d6d4'
+    background: '0x21242b'
+    foreground: '0xf2f2f2'
 
     # Bright and dim foreground colors
     #
@@ -132,31 +135,53 @@ colors:
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '0xeaeaea'
-  #  background: '0x404040'
+  selection:
+   # text: '0xeaeaea'
+   background: '0x3f444a'
 
   # Normal colors
   normal:
     black:   '0x1B2229'
-    red:     '0xe74c3c'
-    green:   '0xb6e63e'
-    yellow:  '0xe2c770'
-    blue:    '0x727280'
-    magenta: '0xfb2874'
-    cyan:    '0x8fa1b3'
-    white:   '0x556172'
+    red:     '0xff5a58'
+    green:   '0x95e0b4'
+    yellow:  '0xecbe7b'
+    blue:    '0x8DBDEC'
+    magenta: '0xf382ac'
+    cyan:    '0x55b5db'
+    white:   '0xDFDFDF'
 
   # Bright colors
   bright:
-    black:   '0x151617'
-    red:     '0xfd971f'
-    green:   '0xb6e63e'
-    yellow:  '0xe2c770'
-    blue:    '0x268bd2'
-    magenta: '0x9c91e4'
-    cyan:    '0x66d9ef'
-    white:   '0xd6d6d4'
+    black:   '0x3f444a'
+    red:     '0xff6c6b'
+    green:   '0x85ECAA'
+    yellow:  '0xe2ec7b'
+    blue:    '0xdbe9f9'
+    magenta: '0xa9a1e1'
+    cyan:    '0x00ffff'
+    white:   '0xf2f2f2'
+
+
+  # normal:
+  #   black:   '0x1B2229'
+  #   red:     '0xe74c3c'
+  #   green:   '0xb6e63e'
+  #   yellow:  '0xecbe7b'
+  #   blue:    '0x727280'
+  #   magenta: '0xf382ac'
+  #   cyan:    '0x8fa1b3'
+  #   white:   '0x556172'
+
+  # # Bright colors
+  # bright:
+  #   black:   '0x151617'
+  #   red:     '0xff6c6b'
+  #   green:   '0xb6e63e'
+  #   yellow:  '0xe2c770'
+  #   blue:    '0x268bd2'
+  #   magenta: '0x9c91e4'
+  #   cyan:    '0x66d9ef'
+  #   white:   '0xd6d6d4'
 
   # Dim colors
   #
@@ -299,10 +324,10 @@ live_config_reload: true
 # Default:
 #   - (Linux/macOS) /bin/bash --login
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+ program: /usr/local/bin/fish
+ args:
+   - --login
 
 # Windows 10 ConPTY backend (Windows only)
 #
@@ -431,8 +456,7 @@ key_bindings:
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
-  - { key: L,        mods: Control, action: ClearLogNotice                   }
-  - { key: L,        mods: Control, chars: "\x0c"                            }
+  # - { key: L,        mods: Control, action: ClearLogNotice                   }
   - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }
@@ -459,21 +483,29 @@ key_bindings:
   - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"                       }
   - { key: Left,                    chars: "\x1b[D",        mode: ~AppCursor }
   - { key: Left,                    chars: "\x1bOD",        mode: AppCursor  }
+  # - { key: H,        mods: Control, chars: "\x1b[D",        mode: ~AppCursor }
+  # - { key: H,        mods: Control, chars: "\x1bOD",        mode: AppCursor  }
   - { key: Right,    mods: Shift,   chars: "\x1b[1;2C"                       }
   - { key: Right,    mods: Control, chars: "\x1b[1;5C"                       }
   - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"                       }
   - { key: Right,                   chars: "\x1b[C",        mode: ~AppCursor }
   - { key: Right,                   chars: "\x1bOC",        mode: AppCursor  }
+  # - { key: L,        mods: Control, chars: "\x1b[C",        mode: ~AppCursor }
+  # - { key: L,        mods: Control, chars: "\x1bOC",        mode: AppCursor  }
   - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                       }
   - { key: Up,       mods: Control, chars: "\x1b[1;5A"                       }
   - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                       }
   - { key: Up,                      chars: "\x1b[A",        mode: ~AppCursor }
   - { key: Up,                      chars: "\x1bOA",        mode: AppCursor  }
+  # - { key: K,        mods: Control, chars: "\x1b[A",        mode: ~AppCursor }
+  # - { key: K,        mods: Control, chars: "\x1bOA",        mode: AppCursor  }
   - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                       }
   - { key: Down,     mods: Control, chars: "\x1b[1;5B"                       }
   - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                       }
   - { key: Down,                    chars: "\x1b[B",        mode: ~AppCursor }
   - { key: Down,                    chars: "\x1bOB",        mode: AppCursor  }
+  # - { key: J,        mods: Control, chars: "\x1b[B",        mode: ~AppCursor }
+  # - { key: J,        mods: Control, chars: "\x1bOB",        mode: AppCursor  }
   - { key: F1,                      chars: "\x1bOP"                          }
   - { key: F2,                      chars: "\x1bOQ"                          }
   - { key: F3,                      chars: "\x1bOR"                          }

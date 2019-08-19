@@ -1,32 +1,79 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(load-theme 'doom-vibrant t)
+;; theming ----------------------------------------
+;; (after! js2
+;;   (message "after js2")
+;; (modify-syntax-entry ?< "//" js2-mode-syntax-table))
+(load-theme 'doom-one-vapor t)
+(set-face-foreground font-lock-type-face (doom-lighten 'yellow 0.8))
+
+(doom-themes-org-config)
+
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
+(after! rtags
+  (setq rtags-rc-binary-name (or rtags-rc-binary-name "rc")
+        rtags-rdm-binary-name (or rtags-rdm-binary-name "rdm")))
+
 (setq user-full-name "Parth Pathak"
       doom-font (font-spec :family "Source Code Pro"
-                           :weight 'demibold
-                           :size 12)
-      ns-use-proxy-icon nil
+                           :weight 'normal
+                           :size 13)
       frame-title-format nil)
-
-(set-face-foreground 'line-number-current-line (doom-color 'constants))
-(set-face-attribute 'line-number-current-line nil :weight 'bold)
-(after! solaire-mode
-  (set-face-background 'line-number-current-line (face-attribute 'solaire-default-face :background)))
-(after! treemacs
-  (doom-themes-treemacs-config)
-  (set-face-attribute 'treemacs-root-face nil :height 130))
+(setq-default
+      line-spacing 1)
 (setq
  doom-modeline-buffer-file-name-style 'truncate-with-project
  doom-modeline-icon t
- doom-modeline-major-mode-icon t
- doom-modeline-major-mode-color-icon t)
-(map!
- :leader
- :prefix "w"
- :desc "delete window" "d" #'ace-delete-window)
-(map!
- :leader
- :desc "Switch to last buffer" "TAB" #'evil-switch-to-windows-last-buffer)
+ doom-modeline-major-mode-icon t)
+
+(setq
+   tab-width 2
+   js-indent-level 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   js2-basic-offset 2)
+
+(setq
+ flycheck-check-syntax-automatically '(save mode-enable)
+ flycheck-idle-change-delay 4)
+
+(add-hook!
+  (c-mode c++-mode emacs-lisp-mode python-mode js-mode js2-mode rjsx-mode typescript-mode nxml-mode)
+  (rainbow-delimiters-mode-disable)
+  ;; (flyspell-prog-mode)
+  )
+
+
+ (add-hook! (js-mode js2-mode js-jsx-mode rjsx-mode typescript-mode) ;; Fix for doom vapor in js2-mode
+  (font-lock-mode 0)
+  (run-with-timer 1 nil (lambda()(font-lock-mode 1))))
+
+(add-hook! (org-mode)
+  (push '("[ ]" . "☐") prettify-symbols-alist)
+  (push '("[X]" . "☑" ) prettify-symbols-alist)
+  (push '("[-]" . "❍" ) prettify-symbols-alist)
+  (prettify-symbols-mode)
+  (+org-pretty-mode))
+
+;; scrolling --------------------------------------
+(setq scroll-conservatively 101
+      mouse-wheel-scroll-amount '(1)
+      mouse-wheel-progressive-speed nil)
+
+(add-to-list 'default-frame-alist '(height . 150))
+(add-to-list 'default-frame-alist '(width . 150))
+
+;; bindings ---------------------------------------
+(map! :leader :desc "Switch to last buffer" "TAB" #'evil-switch-to-windows-last-buffer)
+(map! :leader :prefix "w" :desc "delete window" "d" #'delete-window)
+(map! :leader :prefix "b"
+      :desc "delete buffer" "d" #'kill-this-buffer
+      :desc "kill buffer and window" "k" #'kill-buffer-and-window)
+(map! :nv "gb" #'xref-pop-marker-stack)
+
+;; work-flow ---------------------------------------
+(setq flycheck-global-modes '(not text-mode c-mode c++-mode conf-mode org-mode))
+(setq ivy-extra-directories nil)

@@ -24,21 +24,9 @@ bind-key l next-window
 bind-key < swap-window -t :-
 bind-key > swap-window -t :+
 bind-key c command-prompt 'rename-window %%' 
-set-option -g status-fg white
-set-option -g status-bg default
-set-option -g status-attr default
-set-window-option -g window-status-fg default
-set-window-option -g window-status-bg default
-set-window-option -g window-status-attr default
-set-window-option -g window-status-current-fg red
-set-window-option -g window-status-current-bg default
-set-window-option -g window-status-current-attr default
-set-option -g message-fg white
-set-option -g message-bg black
-set-option -g message-attr bright
+set-option -g status-style "fg=black,bold bg=default"
 set -g status-left " "
 set -g status-justify left
-# set -g window-status-current-format '  #(echo "#{pane_current_command}")  '
 set -g window-status-format '  #W  ' 
 set -g window-status-current-format '  #W  '
 set -g status-right " "
@@ -48,8 +36,13 @@ bind C-a send-prefix
 set-window-option -g mode-keys vi
 set -g automatic-rename off
 set -g pane-border-status bottom
-# set -g pane-border-format ""
-set -g pane-active-border-style bg='#1c1e1f'
-set -g pane-active-border-style fg='#1c1e1f'
-set -g pane-border-style bg='#1c1e1f'
-set -g pane-border-style fg='#1c1e1f'
+set -g pane-border-status bottom
+set -g pane-active-border-style "bg=default fg=#21242b"
+set -g pane-border-style "bg=default fg=#21242b"
+set -g window-status-current-style "bg=default fg=magenta,dim"
+set -g pane-border-format ""
+
+set -s escape-time 0
+set -g base-index 1
+
+
