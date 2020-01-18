@@ -1,0 +1,293 @@
+html#main-window {
+	--color-bg: #21242b;
+	--hover-bg: #3f444a;
+	--toolbar-bgcolor: var(--color-bg) !important;
+
+	--gap-between-tabs: 2px;
+	--margin-after-tab-list: 8x;
+	--margin-before-tab-list: 8px;
+	--tab-font: "Source Code Pro", sans-serif;
+	--tab-font-weight: 500;
+	--tab-font-size: 9pt;
+	--tab-height: 32px;
+	--tabs-container-height: 100%;
+
+	--urlbar-container-margin: 5px;
+	--urlbar-list-width: 60%;
+	--urlbar-text-font: "Source Code Pro", sans-serif;
+	--urlbar-text-size: 10pt;
+	--urlbar-text-weight: 500;
+
+	/* Firefox variables */
+	--lwt-toolbar-field-focus-color: #a1ffb6 !important;
+	--lwt-toolbar-field-color: #fefefa !important;
+	--lwt-toolbar-field-background-color: var(--color-bg) !important;
+  --lwt-toolbarbutton-hover-background: var(--hover-bg) !important;
+  --lwt-toolbarbutton-active-background: hsla(0,0%,100%,.4) !important;
+
+	--arrowpanel-background: var(--color-bg) !important;
+	--arrowpanel-color: white !important;
+	--arrowpanel-border-color: transparent !important;
+}
+
+/* This positions the tabs under the navaigator container */
+#titlebar {
+	-moz-box-ordinal-group: 3 !important;
+}
+
+/* *******************************************************************
+	Toolbar Elements
+*/
+.browser-toolbar {
+	padding-left: 10px !important;
+	padding-top: 5px !important;
+	padding-right: 10px !important;
+}
+
+#PlacesToolbar, 
+#home-button, 
+#reload-button,
+#pocket-button,
+#pageActionSeparator {
+	display: none !important;
+}
+
+#PanelUI-button {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* #page-action-buttons > hbox:not(#userContext-icons) {
+  opacity: 0 !important;
+}
+
+#page-action-buttons > hbox:not(#userContext-icons):hover {
+  opacity: 1 !important;
+} */
+
+#userContext-label {
+  display: none !important;
+}
+
+#pageActionButton, 
+#reader-mode-button, 
+#urlbar-go-button {
+  display: none !important;
+}
+
+#urlbar-container ~ *:not(toolbarspring) {
+  display: none !important;
+}
+
+#urlbar-label-box {
+  border: 0 !important;
+  font-family: var(--urlbar-text-font) !important;
+  font-size: var(--urlbar-text-size) !important;
+}
+
+#urlbar-input, 
+#urlbar-input-container {
+	background-color: var(--hover-bg) !important;
+}
+
+#urlbar-input-container {
+	padding-left: 5px;
+}
+
+/* Custom back and forward buttons */
+#back-button {
+  --backbutton-background: var(--color-bg) !important;
+  --backbutton-hover-background: var(--hover-bg) !important;
+}
+
+#forward-button {
+}
+
+#navigator-toolbox {
+	--tabs-border-color: var(--color-bg) !important;
+	background-color: var(--color-bg) !important;
+	border: none !important;
+	box-shadow: none !important;
+	max-height: var(		--tabs-container-height	) !important;
+	min-height: var(		--tabs-container-height	) !important;
+}
+
+/* *******************************************************************
+	Urlbar
+*/
+
+/* Url bar suggestions list container */
+.urlbarView {
+	background-color: var(--color-bg) !important;
+	border-radius: 0 8px 8px !important;
+	box-shadow: 0px 0px 40px rgba(0, 0, 0, 35%) !important;
+	box-shadow: none !important;
+	margin: auto !important;
+	width: var(--urlbar-list-width) !important;
+  font-family: var(--urlbar-text-font) !important;
+	font-size: var(--urlbar-text-size) !important;
+	padding: 0 5px 0 5px;
+}
+
+/* Url bar suggestions' selected row */
+.urlbarView:not(.megabar) .urlbarView-row:not([type="tip"])[selected],
+.urlbarView.megabar .urlbarView-row:not([type="tip"])[selected] > .urlbarView-row-inner {
+	background: #8DBDEC !important;
+	color: black !important;
+	fill-opacity: 1;
+	padding-left: 10px;
+}
+
+/* The text that says 'Search with ...' */
+.urlbarView-action {
+	color: #ff6c6b !important;
+}
+
+.urlbarView-row:not([type="tip"])[selected] .urlbarView-action {
+		color: black !important;
+}
+
+/* Url bar suggestions' row that is being hovered over */
+.urlbarView-row:hover {
+	background-color: #ecbe7b !important;
+	color: black !important;
+}
+
+/* Text that says: This time, search with: */
+.search-one-offs {
+  display: none !important;
+}
+
+#urlbar-background,
+#urlbar-container,
+.urlbar-input-box {
+	background-color: var(--color-bg) !important;
+	background-image: none !important;
+}
+
+#urlbar:not(.megabar),
+#urlbar.megabar > #urlbar-background,
+#searchbar {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* Hacky way to make the url input bar centered */
+input#urlbar-input {
+/* 	caret-color: transparent !important; */
+	font-family: var(--urlbar-text-font) !important;
+	font-size: var(--urlbar-text-size) !important;
+	font-weight: var(--urlbar-text-weight) !important;
+	text-align: center !important;
+	width: 99999px !important;
+}
+
+.urlbarView-favicon,
+.urlbar-history-dropmarker,
+#star-button,
+#identity-box {
+	display: none !important;
+}
+
+#tracking-protection-icon-container,
+#urlbar-search-button {
+	background-color: none !important;
+	background-image: none !important;
+	border: none !important;
+}
+
+#userContext-indicator {
+	opacity: 0.5 !important;
+}
+
+/* *******************************************************************
+	Browser tabs
+*/
+
+/* Hide some bloat */
+.tab-close-button,
+#tabs-newtab-button,
+.tabbrowser-tab::before,
+.tabbrowser-tab::after {
+	display: none !important;
+}
+
+.tab-line {
+	background-color: var(--identity-tab-color, #a9e1e1) !important;
+}
+
+.tab-bottom-line {
+	height: 1px !important;
+}
+
+tab[selected="true"] .tab-bottom-line {
+  display: none !important;
+}
+
+
+tab[selected="true"] .tabbrowser-tab {
+  background-color: white !important;
+}
+
+
+/* Regular browser tabs */
+.tabbrowser-tab {
+	background-color: var(--color-bg) !important;
+	border-radius: 2px !important;
+	margin-inline-end: var(--gap-between-tabs) !important;
+	max-height: var(--tab-height) !important;
+	min-height: var(--tab-height) !important;
+	margin-bottom: 4px !important;
+	font-family: var(--tab-font) !important;
+	font-size: var(--tab-font-size) !important;
+	font-weight: var(--tab-font-weight) !important;
+}
+
+tab {
+	opacity: 0.7 !important;;
+}
+
+tab[selected="true"] {
+	opacity: 1 !important;
+}
+
+tab .tab-content {
+	color: gray !important;
+}
+
+tab[selected="true"] .tab-content {
+	color: var(--identity-tab-color) !important;
+}
+
+.tabbrowser-tab[pinned="true"] .tab-icon-image {
+	align-items: center !important;
+	display: inline-block !important;
+	min-height: var(--pinned-tab-favicon-dim) !important;
+	min-width: var(--pinned-tab-favicon-dim) !important;
+}
+
+.tabbrowser-tab[pinned="true"] .tab-label-container {
+	display: none !important;
+}
+
+/* Modify these values to tweak the start point of the tab list */
+.tabbrowser-arrowscrollbox {
+	margin-inline-start: var(--margin-before-tab-list) !important;
+	margin-inline-end: var(--margin-after-tab-list) !important;
+}
+
+/* *******************************************************************
+	Settings menu pop-up
+*/
+.panel-arrowbox {
+	margin: 0 !important;
+	display: none !important;
+}
+
+.panel-arrowcontent {
+	opacity: 1 !important;
+	margin: 0 !important;
+}
+
+
