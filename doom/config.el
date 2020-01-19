@@ -4,6 +4,26 @@
 ;; (after! js2
 ;;   (message "after js2")
 ;; (modify-syntax-entry ?< "//" js2-mode-syntax-table))
+
+(after! solaire-mode
+  (solaire-global-mode -1))
+
+(setq ivy-posframe-display-functions-alist
+      '((swiper          . nil)
+        (complete-symbol . ivy-posframe-display-at-point)
+        (counsel-M-x     . ivy-posframe-display-at-frame-center)
+        (t               . ivy-posframe-display-at-frame-center)))
+(setq ivy-posframe-parameters
+      '((internal-border-width . 20)))
+(setq ivy-posframe-border-width 0
+      ivy-posframe-min-width 130)
+(defun reset-posframe-size(frame)
+  (let ((curr-width (frame-width frame)))
+    (if (> curr-width 130) (ivy-posframe-mode 1) (ivy-posframe-mode 0))))
+(add-to-list 'window-size-change-functions 'reset-posframe-size)
+(ivy-posframe-enable)
+
+
 (load-theme 'doom-one-vapor t)
 (set-face-foreground font-lock-type-face (doom-lighten 'yellow 0.8))
 
@@ -11,10 +31,6 @@
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-
-(after! rtags
-  (setq rtags-rc-binary-name (or rtags-rc-binary-name "rc")
-        rtags-rdm-binary-name (or rtags-rdm-binary-name "rdm")))
 
 (setq user-full-name "Parth Pathak"
       doom-font (font-spec :family "Source Code Pro"
@@ -47,9 +63,12 @@
   )
 
 
- (add-hook! (js-mode js2-mode js-jsx-mode rjsx-mode typescript-mode) ;; Fix for doom vapor in js2-mode
+(add-hook! (js-mode js2-mode js-jsx-mode rjsx-mode typescript-mode) ;; Fix for doom vapor in js2-mode
   (font-lock-mode 0)
   (run-with-timer 1 nil (lambda()(font-lock-mode 1))))
+
+(setq python-shell-interpreter "python3"
+      flycheck-python-pycompile-executable "python3")
 
 (add-hook! (org-mode)
   (push '("[ ]" . "☐") prettify-symbols-alist)
@@ -77,3 +96,17 @@
 ;; work-flow ---------------------------------------
 (setq flycheck-global-modes '(not text-mode c-mode c++-mode conf-mode org-mode))
 (setq ivy-extra-directories nil)
+(set-face-background 'ivy-posframe (doom-darken 'bg 0.17))
+
+
+
+;; TODO disable auto fill mode in markdown mode
+
+;; (setq org-agenda-files (list "~/cpu.org"))
+;; (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+;; (setq org-capture-templates
+;;       '(("v" "Task" entry (file+headline "~/cpu.org" "ROM")
+;;          "[ ] TESTING TEXT")))
+
+;; (define-key global-map "\C-cx"
+;;         (lambda () (interactive) (org-capture nil "x")))

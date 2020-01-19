@@ -1,7 +1,6 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.doom.d/packages.el
 
-;;; Examples:
-;; (package! some-package)
-;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 (package! highlight-escape-sequences)
+(package! ivy-posframe)
+(package! doom-themes :recipe (:host github :repo "Autokrator/emacs-doom-themes"))
